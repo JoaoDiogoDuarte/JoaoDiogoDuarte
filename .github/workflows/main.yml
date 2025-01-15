@@ -14,19 +14,6 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Set up dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget gnupg ca-certificates libgconf-2-4 build-essential patch ruby-dev zlib1g-dev liblzma-dev libxml2-dev libxslt1-dev
-          wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-          sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 libx11-xcb1 libxtst6 lsb-release --no-install-recommends
-          sudo apt-get install -y curl unzip
-          curl -fsSL https://deno.land/x/install/install.sh | DENO_INSTALL=/usr/local sudo sh
-          sudo apt-get install -y ruby-full git g++ cmake pkg-config libssl-dev
-          sudo gem install licensed
-          sudo apt-get install -y python3
-      - uses: joaodiogoduarte/metrics@main
+      - uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
