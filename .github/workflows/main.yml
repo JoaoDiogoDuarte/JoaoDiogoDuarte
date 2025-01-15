@@ -14,6 +14,6 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: joaodiogoduarte/metrics@latest
+      - uses: joaodiogoduarte/metrics@master
         with:
           token: ${{ secrets.METRICS_TOKEN }}
